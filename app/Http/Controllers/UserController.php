@@ -27,8 +27,9 @@ class UserController extends Controller
         ]);
         if(auth()->attempt(['name'=> $incomingFields['loginname'], 'password'=> $incomingFields['loginpassword']])){
             $request->session()->regenerate();
+            return redirect('/dashboard');
         }
-        return redirect('/dashboard');
+        return back()->withErrors(['loginname' => 'Invalid username or password.']);
         
     }
     public function logout(){
