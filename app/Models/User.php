@@ -19,6 +19,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     protected $hidden = [
@@ -40,5 +41,10 @@ class User extends Authenticatable
     }
     public function usersCoolPosts(){
         return $this->hasMany(Post::class, 'user_id');
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
     }
 }

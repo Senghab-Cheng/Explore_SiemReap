@@ -6,18 +6,16 @@
       <!-- 
         - #HERO
       -->
-
       <?php 
       $hero_img = [
-        "img1" => "images/Bayon.webp",
-        "img2" => "images/angkor_night.jpg",
-        "img3" => "images/Taprohm.webp",
-        "img4" => "images/angkor_day.avif",
-        "img5" => "images/b1.webp",
-        "img6" => "images/b2.webp",
-        "img7" => "images/b3.webp"
+        "img1" => "images/Angkor Wat/angkor_wat1.jpg",
+        "img2" => "images/Bayon Temple/bayon1.jpg",
+        "img3" => "images/Ta prohm Temple/ta_prohm1.jpg",
+        "img4" => "images/Banteay Srei Temple/bantey_srei1.jpg",
+        "img5" => "images/Preah Khan Temple/preah_Khan.jpg",
       ];
-       ?>       
+       ?>      
+   
 
       <section class="hero" id="home" style="background-image: url('<?php echo $hero_img['img1']; ?>');">
         <div class="container">
@@ -225,7 +223,7 @@
               <div class="popular-card">
 
                 <figure class="card-img">
-                  <img src="{{ asset('images/Pub-street-in-Siem-Reap.webp') }}" alt="Pub Street" loading="lazy">
+                  <img src="{{ asset('images/b1.webp') }}" alt="Pub Street" loading="lazy">
                 </figure>
 
                 <div class="card-content">
@@ -254,76 +252,6 @@
 
               </div>
             </li>
-            <li>
-              <div class="popular-card">
-
-                <figure class="card-img">
-                  <img src="{{ asset('images/Pub-street-in-Siem-Reap.webp') }}" alt="Pub Street" loading="lazy">
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-
-                  <p class="card-subtitle">
-                    <a href="#">Siem Reap</a>
-                  </p>
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Pub Street</a>
-                  </h3>
-
-                  <p class="card-text">
-                   Siem Reap is the best. 
-                  </p>
-
-                </div>
-
-              </div>
-            </li>
-            
-             <li>
-              <div class="popular-card">
-
-                <figure class="card-img">
-                  <img src="{{ asset('images/Pub-street-in-Siem-Reap.webp') }}" alt="Pub Street" loading="lazy">
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-
-                  <p class="card-subtitle">
-                    <a href="#">Siem Reap</a>
-                  </p>
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Pub Street</a>
-                  </h3>
-
-                  <p class="card-text">
-                   Siem Reap is the best. 
-                  </p>
-
-                </div>
-
-              </div>
-            </li>
-            
-            
-
           </ul>
 
           <button class="btn btn-primary">More Places</button>

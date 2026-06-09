@@ -13,6 +13,9 @@ class Post extends Model
     protected $fillable = [
         'title',
         'body',
+        'category',
+        'image_path',
+        'map_embed_url',
         'user_id',
     ];
 
@@ -20,4 +23,9 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
-}
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class)->latest();
+    }
+} 
