@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController; 
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/contact', function () {
     return view('contact');
@@ -28,16 +29,10 @@ Route::post('/login', [UserController::class, 'login']);
 Route::post('/logout', [UserController::class, 'logout']);
 Route::get('/signup', fn() => view('signup'));
 Route::get('/login', fn() => view('login'));
-
-
-Route::get('/dashboard', function () {
-    if (! auth()->check()) {
-        return redirect('/signup');
-    }
-
-    $posts = \App\Models\Post::with('user')->latest()->get();
-    return view('dashboard',['posts' => $posts]); 
-});
+Route::get('/profile', [ProfileController::class, 'redirect']);
+Route::get('/admin/profile', [ProfileController::class, 'admin']);
+Route::get('/user/profile', [ProfileController::class, 'user']);
+Route::post('/profile/photo', [ProfileController::class, 'updatePhoto']);
 
 Route::post('/create-post',[PostController::class, 'createPost']);
 Route::get('/edit-post/{post}',[PostController::class, 'showEditScreen']);

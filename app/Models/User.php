@@ -20,6 +20,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'profile_photo_path',
     ];
 
     protected $hidden = [
@@ -41,6 +42,11 @@ class User extends Authenticatable
     }
     public function usersCoolPosts(){
         return $this->hasMany(Post::class, 'user_id');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 
     public function isAdmin(): bool

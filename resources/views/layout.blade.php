@@ -182,9 +182,11 @@
               <a href="/cafe" class="navbar-link" data-nav-link>Café</a>
             </li>
 
+            @auth
             <li>
-              <a href="/dashboard" class="navbar-link" data-nav-link>Dashboard</a>
+              <a href="/profile" class="navbar-link" data-nav-link>Profile</a>
             </li>
+            @endauth
 
           </ul>
 

@@ -32,7 +32,7 @@ class PostController extends Controller
         unset($incomingFields['image']);
 
         Post::create($incomingFields);
-        return redirect('/dashboard');
+        return redirect('/admin/profile');
     }
 
     public function showEditScreen(Post $post){
@@ -44,7 +44,7 @@ class PostController extends Controller
 
     public function updatePost(Post $post, Request $request){
         if(! auth()->check() || ! auth()->user()->isAdmin()){
-            return redirect('/dashboard');
+            return redirect('/admin/profile');
         }
 
         $incomingFields = $request->validate([
@@ -66,14 +66,14 @@ class PostController extends Controller
         unset($incomingFields['image']);
 
         $post->update($incomingFields);
-        return redirect('/dashboard');
+        return redirect('/admin/profile');
     }
 
     public function deletePost(Post $post){
         if(auth()->check() && auth()->user()->isAdmin()){
             $post->delete();
         }
-        return redirect('/dashboard');
+        return redirect('/admin/profile');
     }
 
     private function storePublicImage(Request $request): string

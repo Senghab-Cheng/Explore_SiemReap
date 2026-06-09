@@ -20,13 +20,13 @@ $hero_img = [
   <div class="container">
     <h2 class="h2 section-title">{{ $sectionTitle }}</h2>
     <p class="section-text">
-      Places posted by the admin are loaded from the database. Details, images, and Google Maps embeds are managed from the dashboard.
+      Places posted by the admin are loaded from the database. Details, images, and Google Maps embeds are managed from the admin profile.
     </p>
 
     @if($places->isEmpty())
       <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary text-center">
         <h3 class="h3">No places posted yet.</h3>
-        <p class="mb-0">Admin can add places from the dashboard.</p>
+        <p class="mb-0">Admin can add places from the profile page.</p>
       </div>
     @else
       <ul class="package-list">
