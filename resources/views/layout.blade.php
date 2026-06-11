@@ -198,7 +198,7 @@
                 <button class="btn btn-outline-danger">Logout</button>
             </form>
         @else
-            <a href="/signup" class="btn btn-primary">Sign Up</a>
+            <a href="/login" class="btn btn-primary">Login</a>
         @endauth
 
       </div>

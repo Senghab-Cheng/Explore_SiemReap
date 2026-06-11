@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+
 <?php
 $hero_img = [
   "hot_spot" => "images/Pub Street/pub_street4.jpg",
@@ -9,7 +10,6 @@ $hero_img = [
   "cafe" => "images/bean_embassy.jpg",
 ];
 ?>
-
 <section class="hero" id="home" style="background-image: url('{{ asset($hero_img[$category] ?? $hero_img['hot_spot']) }}');">
   <div class="container">
     <h2 class="h1 hero-title">{{ $heroTitle }}</h2>
@@ -38,7 +38,10 @@ $hero_img = [
               </figure>
 
               <div class="card-content">
-                <h3 class="h3 card-title">{{ $place->title }}</h3>
+                <a href="/places/{{ $place->id }}" style="text-decoration: none; color: inherit;">
+                  <h3 class="h3 card-title" style="cursor: pointer;">{{ $place->title }}</h3>
+                </a>
+
                 <p class="card-text">{!! nl2br(e($place->body)) !!}</p>
 
                 <div class="mt-4">

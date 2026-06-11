@@ -103,6 +103,20 @@ $hero_img = [
         color: #b91c1c;
         font-size: 0.8rem;
     }
+    .form-switch {
+        margin-top: 1.25rem;
+        text-align: center;
+        color: #6b7280;
+        font-size: 0.95rem;
+    }
+    .form-switch a {
+        color: #6a64f1;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    .form-switch a:hover {
+        text-decoration: underline;
+    }
     @media (max-width: 700px) {
         .main-center { flex-direction: column; padding: 1rem; }
         .form-title { font-size: 1.5rem; }
@@ -112,9 +126,9 @@ $hero_img = [
  
 <main>
   <article>
-   <section class="hero" id="home" style="background-image: url('<?php echo $hero_img['img1']; ?>');  min-height: 350px;">
+   <section class="hero" id="home" style="background-image: url('{{ asset($hero_img['img1']) }}'); min-height: 350px;">
   <div class="container">
-    <h2 class="h1 hero-title">Post Contents</h2>
+    <h2 class="h1 hero-title">Create Account</h2>
   </div>
 </section>
     <div class="main-center">
@@ -155,23 +169,7 @@ $hero_img = [
  
             <button type="submit" class="form-btn">Sign Up</button>
           </form>
-        </div>
-        <div class="form-container">
-          <h2 class="form-title">Login</h2>
-          <p class="form-desc">Already have an account? Log in here.</p>
-
-          
- 
-          <form action="/login" method="POST">
-            @csrf
-            <label class="form-label">Username *</label>
-            <input type="text" name="loginname" class="form-input" placeholder="Enter your username" required>
- 
-            <label class="form-label">Password *</label>
-            <input type="password" name="loginpassword" class="form-input" placeholder="Enter your password" required>
- 
-            <button type="submit" class="form-btn">Login</button>
-          </form>
+          <p class="form-switch">Already have an account? <a href="/login">Login here</a></p>
         </div>
  
       @endauth

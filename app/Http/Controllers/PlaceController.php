@@ -6,6 +6,7 @@ use App\Models\Post;
 
 class PlaceController extends Controller
 {
+
     private array $categoryTitles = [
         'hot_spot' => ['Popular places to visit in Siem Reap', 'Popular places to visit'],
         'temple' => ['Temples in Siem Reap', 'Popular Temples'],
@@ -13,6 +14,12 @@ class PlaceController extends Controller
         'restaurant' => ['Restaurants in Siem Reap', 'Popular Restaurants'],
         'cafe' => ['Cafes in Siem Reap', 'Popular Cafes'],
     ];
+
+    public function show($id)
+{
+    $post = Post::findOrFail($id);
+    return view('place-detail', compact('post'));
+}
 
     public function index(string $category)
     {
