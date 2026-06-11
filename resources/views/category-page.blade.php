@@ -104,8 +104,22 @@ $hero_img = $heroImagesByCategory[$category] ?? $heroImagesByCategory['hot_spot'
                           <strong>{{ $review->user->name }}</strong>
                           <span class="text-warning">{!! str_repeat('&#9733;', $review->rating) !!}</span>
                           <p class="mb-0">{{ $review->comment }}</p>
-                        </div>
-                      @endforeach
+                        
+                          @auth
+                          @if(auth()->id() === $review->user_id || auth()->user()->isAdmin())
+                            <form action="/reviews/{{ $review->id }}" method="POST" style="margin: 0.3rem 0 0;">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit"
+                                onclick="return confirm('Delete this review?')"
+                                style="background: none; border: none; color: #ef4444; font-size: 0.8rem; cursor: pointer; padding: 0; font-weight: 600;">
+                                 Delete
+                              </button>
+                            </form>
+                          @endif
+                        @endauth
+                      </div>
+                    @endforeach
                     </div>
                     @if($place->reviews->count() > 1)
                       <button type="button" class="review-more-btn" data-review-more>See more reviews</button>

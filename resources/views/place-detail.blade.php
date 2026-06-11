@@ -112,8 +112,21 @@
             <p class="review-author">{{ $review->user->name }}</p>
             <span class="text-warning">{!! str_repeat('&#9733;', $review->rating) !!}</span>
             <p class="review-comment">{{ $review->comment }}</p>
-          </div>
-        @empty
+            @auth
+            @if(auth()->id() === $review->user_id || auth()->user()->isAdmin())
+              <form action="/reviews/{{ $review->id }}" method="POST" style="margin: 0.4rem 0 0;">
+                @csrf
+                @method('DELETE')
+                <button type="submit"
+                  onclick="return confirm('Delete this review?')"
+                  style="background: none; border: none; color: #ef4444; font-size: 0.8rem; cursor: pointer; padding: 0; font-weight: 600;">
+                   Delete
+                </button>
+              </form>
+            @endif
+          @endauth
+        </div>
+      @empty
           <p style="color: #6b7280;">No reviews yet.</p>
         @endforelse
 

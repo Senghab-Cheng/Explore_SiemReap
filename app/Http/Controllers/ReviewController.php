@@ -31,4 +31,20 @@ class ReviewController extends Controller
 
         return back();
     }
+        public function destroy(Review $review)
+    {
+        if (! auth()->check()) {
+            return redirect('/login');
+        }
+
+        $user = auth()->user();
+
+        if ($user->id !== $review->user_id && ! $user->isAdmin()) {
+            abort(403);
+        }
+
+        $review->delete();
+
+        return back();
+    }
 }
