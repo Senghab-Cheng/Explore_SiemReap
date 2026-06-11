@@ -27,6 +27,7 @@ Route::get('/contact', function () {
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/logout', [UserController::class, 'logout']);
+Route::get('/places/{id}', [PlaceController::class, 'show']);
 Route::get('/signup', fn() => view('signup'));
 Route::get('/login', fn() => view('login'));
 Route::get('/profile', [ProfileController::class, 'redirect']);
