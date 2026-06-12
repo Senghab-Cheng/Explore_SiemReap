@@ -72,7 +72,7 @@ $hero_img = [
     }
     .form-input::placeholder { color: #9ca3af; }
     .form-input:focus {
-        border-color: #6a64f1 !important;
+        border-color: rgb(59, 121, 201)1 !important;
         box-shadow: 0 0 0 3px rgba(106,100,241,0.2) !important;
     }
     .form-btn {
@@ -83,7 +83,7 @@ $hero_img = [
         padding: 0.875rem 1.5rem;
         border: none;
         font-weight: 600;
-        background-color: #6a64f1;
+        background-color: rgb(59, 121, 201);
         color: white;
         cursor: pointer;
         margin-top: 1rem;
@@ -91,7 +91,7 @@ $hero_img = [
         font-family: inherit;
     }
     .form-btn:hover {
-        background-color: #5a54d1;
+        background-color: rgb(59, 121, 201);
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .form-errors {
@@ -110,7 +110,7 @@ $hero_img = [
         font-size: 0.95rem;
     }
     .form-switch a {
-        color: #6a64f1;
+        color: rgb(59, 121, 201);
         font-weight: 700;
         text-decoration: none;
     }

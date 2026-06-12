@@ -16,6 +16,7 @@ class PostController extends Controller
             return redirect('/');
         }
 
+        
         $incomingFields = $request->validate([
             'title' => 'required',
             'body' => 'required',
