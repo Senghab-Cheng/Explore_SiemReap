@@ -112,29 +112,22 @@
         <ul class="social-list">
 
           <li>
-            <a href="#" class="social-link">
+            <a href="https://www.facebook.com/share/1D3KfBdv2X/?mibextid=wwXIfr" class="social-link">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
           </li>
 
           <li>
-            <a href="#" class="social-link">
+            <a href="https://www.instagram.com/ministry_of_tourismcambodia" class="social-link">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
 
           <li>
-            <a href="#" class="social-link">
+            <a href="https://youtube.com/@officialtourism.cambodia?si=uVs_ir35m_jbL0Pi" class="social-link" target="_blank" rel="noopener noreferrer">
               <ion-icon name="logo-youtube"></ion-icon>
             </a>
           </li>
-
-           <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-tiktok"></ion-icon>
-            </a>
-          </li>
-
         </ul>
 
         <nav class="navbar" data-navbar>
