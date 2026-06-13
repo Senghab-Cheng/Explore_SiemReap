@@ -15,25 +15,31 @@ class PostController extends Controller
         if (! auth()->check() || ! auth()->user()->isAdmin()) {
             return redirect('/');
         }
-
-        
+    
         $incomingFields = $request->validate([
-            'title' => 'required',
-            'body' => 'required',
-            'category' => 'required|in:' . implode(',', $this->categories),
-            'image' => 'required|image|max:4096',
-            'map_embed_url' => 'required',
+            'title'        => 'required',
+            'body'         => 'required',
+            'category'     => 'required|in:' . implode(',', $this->categories),
+            'image'        => 'required|image|max:4096',
+            'map_embed_url'=> 'required',
         ]);
-
-        $incomingFields['title'] = strip_tags($incomingFields['title']);
-        $incomingFields['body'] = strip_tags($incomingFields['body'], '<br>');
+    
+        $incomingFields['title']         = strip_tags($incomingFields['title']);
+        $incomingFields['body']          = strip_tags($incomingFields['body'], '<br>');
         $incomingFields['map_embed_url'] = $this->normalizeMapUrl($incomingFields['map_embed_url']);
+    
+        $uploadDir = public_path('images/admin-posts');
+        if (! is_dir($uploadDir)) {
+            mkdir($uploadDir, 0755, true);
+        }
+    
         $incomingFields['image_path'] = $this->storePublicImage($request);
-        $incomingFields['user_id'] = auth()->id();
+        $incomingFields['user_id']    = auth()->id();
         unset($incomingFields['image']);
-
+    
         Post::create($incomingFields);
-        return redirect('/admin/profile');
+    
+        return redirect('/admin/profile')->with('success', 'Place created successfully!');
     }
 
     public function showEditScreen(Post $post){
