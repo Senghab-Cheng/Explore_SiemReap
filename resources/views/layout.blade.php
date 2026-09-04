@@ -21,8 +21,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ filemtime(public_path('css/style.css')) }}">
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  @vite(['resources/css/style.css', 'resources/css/app.css', 'resources/js/app.js'])
 
   <!-- 
     - google font link
