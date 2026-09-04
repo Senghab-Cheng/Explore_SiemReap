@@ -22,6 +22,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 
   <!-- 
     - google font link
@@ -46,12 +47,6 @@
 
     <div class="header-top">
       <div class="container">
-
-        <a href="#" class="logo">
-
-          
-
-        </a>
 
         <a href="#" class="logo">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="100%" height="100%">
@@ -135,7 +130,7 @@
           <div class="navbar-top">
 
             <a href="#" class="logo">
-              <img src="{{ asset('images/logo-blue.svg') }}" alt="Tourly logo">
+              <span aria-label="ExploreSR">ExploreSR</span>
             </a>
 
             <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
@@ -311,7 +306,7 @@
             <li class="contact-item">
               <ion-icon name="mail-outline"></ion-icon>
 
-              <a href="mailto:info.tourly.com" class="contact-link">ExploreSR.com</a>
+              <a href="mailto:info@exploresr.com" class="contact-link">ExploreSR.com</a>
             </li>
 
             <li class="contact-item">
@@ -375,8 +370,6 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
-
   <!-- 
     - ionicon link
   -->

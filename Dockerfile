@@ -5,6 +5,7 @@ COPY package.json package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci --prefer-offline
 COPY resources/css ./resources/css
 COPY resources/js ./resources/js
+COPY resources/views ./resources/views
 COPY vite.config.js ./
 RUN npm run build
 
