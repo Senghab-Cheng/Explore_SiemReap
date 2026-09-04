@@ -2,9 +2,9 @@ FROM node:22-alpine AS frontend
 
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
-COPY resources ./resources
-COPY public ./public
+RUN --mount=type=cache,target=/root/.npm npm ci --prefer-offline
+COPY resources/css ./resources/css
+COPY resources/js ./resources/js
 COPY vite.config.js ./
 RUN npm run build
 
@@ -12,11 +12,15 @@ FROM composer:2 AS dependencies
 
 WORKDIR /app
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --no-scripts
+RUN --mount=type=cache,target=/tmp/composer-cache \
+    COMPOSER_CACHE_DIR=/tmp/composer-cache \
+    composer install --no-dev --no-interaction --prefer-dist --no-scripts
 
 FROM php:8.4-cli-bookworm
 
 WORKDIR /var/www/html
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends libpq-dev \
@@ -30,6 +34,7 @@ COPY --from=frontend /app/public/build ./public/build
 RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views \
     && mkdir -p bootstrap/cache \
     && chmod -R ug+rw storage bootstrap/cache \
+    && composer dump-autoload --no-dev --classmap-authoritative --no-interaction \
     && php artisan package:discover --ansi
 
-CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
+CMD ["sh", "-c", "php artisan migrate --force && exec php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
