@@ -21,7 +21,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ filemtime(public_path('css/style.css')) }}">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 
   <!-- 
@@ -49,7 +49,7 @@
       <div class="container">
 
         <a href="#" class="logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="100%" height="100%">
+          <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" role="img" aria-label="ExploreSR">
   <defs>
     <style>
       .brand-text {
@@ -128,11 +128,6 @@
         <nav class="navbar" data-navbar>
 
           <div class="navbar-top">
-
-            <a href="#" class="logo">
-              <span aria-label="ExploreSR">ExploreSR</span>
-            </a>
-
             <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
               <ion-icon name="close-outline"></ion-icon>
             </button>
@@ -231,7 +226,7 @@
 
 
           <a href="#" class="logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="100%" height="100%">
+            <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" role="img" aria-label="ExploreSR">
   <defs>
     <style>
       .brand-text {

@@ -241,6 +241,12 @@ body { background: var(--white); }
 
 .header-top .logo img { max-width: 100px; }
 
+.header-top .brand-logo,
+.footer-brand .brand-logo {
+  width: 220px;
+  height: auto;
+}
+
 .header-btn-group {
   justify-self: flex-end;
   display: flex;
