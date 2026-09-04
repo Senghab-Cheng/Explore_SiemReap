@@ -53,3 +53,7 @@ Route::post('/places/{post}/reviews', [ReviewController::class, 'store']);
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Route::get('/health', function () {
+    return response()->json(['ok' => true]);
+});

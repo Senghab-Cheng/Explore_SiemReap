@@ -57,3 +57,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # Explore_SiemReap
+
+## Vercel deployment
+
+This project deploys to Vercel as a containerized Laravel app.
+
+The Vercel entrypoint is [`Dockerfile.vercel`](./Dockerfile.vercel), and [`vercel.json`](./vercel.json) routes all traffic to that container.
+
+For local smoke checks:
+
+```bash
+npm run build
+php artisan route:list
+```
+
+The container uses SQLite, file cache, and file sessions by default so it can boot without a local MySQL instance. If you want durable production data, set external database credentials in the Vercel project environment variables and update the runtime settings accordingly.

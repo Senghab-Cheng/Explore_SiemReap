@@ -1,0 +1,50 @@
+FROM node:22-alpine AS frontend
+
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN --mount=type=cache,target=/root/.npm npm ci --prefer-offline
+COPY resources ./resources
+COPY public ./public
+COPY vite.config.js ./
+RUN npm run build
+
+FROM composer:2 AS dependencies
+
+WORKDIR /app
+COPY composer.json composer.lock ./
+RUN --mount=type=cache,target=/tmp/composer-cache \
+    COMPOSER_CACHE_DIR=/tmp/composer-cache \
+    composer install --no-dev --no-interaction --prefer-dist --no-scripts --no-progress
+
+FROM php:8.4-cli-bookworm
+
+WORKDIR /var/www/html
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends sqlite3 libsqlite3-dev \
+    && docker-php-ext-install pdo_sqlite \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=dependencies /app/vendor ./vendor
+COPY . .
+COPY --from=frontend /app/public/build ./public/build
+
+ENV APP_ENV=production \
+    APP_DEBUG=false \
+    LOG_CHANNEL=stderr \
+    CACHE_STORE=file \
+    SESSION_DRIVER=file \
+    QUEUE_CONNECTION=sync \
+    DB_CONNECTION=sqlite \
+    DB_DATABASE=/var/www/html/database/database.sqlite \
+    APP_KEY=base64:nREO3yRnAcSPSCOVognHyvyELrqnPzHwaV96YFjgvxM=
+
+RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views \
+    && mkdir -p bootstrap/cache database \
+    && touch database/database.sqlite \
+    && chmod -R ug+rw storage bootstrap/cache database \
+    && php artisan package:discover --ansi
+
+RUN php artisan migrate --force --seed --no-interaction || true
+
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-80}"]
