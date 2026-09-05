@@ -32,9 +32,10 @@ COPY --from=frontend /app/public/build ./public/build
 RUN cat > .env <<'EOF'
 APP_ENV=production
 APP_DEBUG=false
-APP_URL=http://localhost
+APP_URL=https://explore-siem-reap.vercel.app
 CACHE_STORE=file
 SESSION_DRIVER=file
+SESSION_SECURE_COOKIE=true
 QUEUE_CONNECTION=sync
 DB_CONNECTION=sqlite
 DB_DATABASE=/var/www/html/database/database.sqlite
@@ -57,4 +58,4 @@ RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framewor
 
 RUN php artisan migrate --force --seed --no-interaction || true
 
-CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-80}"]
+CMD ["sh", "-c", "if [ -n \"$VERCEL_PROJECT_PRODUCTION_URL\" ]; then export APP_URL=https://$VERCEL_PROJECT_PRODUCTION_URL; elif [ -n \"$VERCEL_URL\" ]; then export APP_URL=https://$VERCEL_URL; fi; php artisan serve --host=0.0.0.0 --port=${PORT:-80}"]
