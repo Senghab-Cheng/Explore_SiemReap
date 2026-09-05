@@ -51,7 +51,7 @@
           <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" role="img" aria-label="ExploreSR">
   <defs>
     <style>
-      .brand-text {
+      .brand-text { 
         font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         font-size: 44px;
         font-weight: 500;

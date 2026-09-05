@@ -32,7 +32,6 @@ COPY --from=frontend /app/public/build ./public/build
 RUN cat > .env <<'EOF'
 APP_ENV=production
 APP_DEBUG=false
-APP_KEY=base64:nREO3yRnAcSPSCOVognHyvyELrqnPzHwaV96YFjgvxM=
 APP_URL=http://localhost
 CACHE_STORE=file
 SESSION_DRIVER=file
@@ -48,8 +47,7 @@ ENV APP_ENV=production \
     SESSION_DRIVER=file \
     QUEUE_CONNECTION=sync \
     DB_CONNECTION=sqlite \
-    DB_DATABASE=/var/www/html/database/database.sqlite \
-    APP_KEY=base64:nREO3yRnAcSPSCOVognHyvyELrqnPzHwaV96YFjgvxM=
+    DB_DATABASE=/var/www/html/database/database.sqlite
 
 RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views \
     && mkdir -p bootstrap/cache database \
