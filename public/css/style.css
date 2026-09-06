@@ -198,6 +198,7 @@ body { background: var(--white); }
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   padding-top: 61px;
   z-index: 4;
@@ -245,39 +246,107 @@ body { background: var(--white); }
 .footer-brand .brand-logo {
   width: 220px;
   height: auto;
+  display: block;
 }
 
 .header-btn-group {
-  justify-self: flex-end;
+  grid-column: 3;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   color: var(--white);
 }
 
-.search-btn,
+.header-btn-group .nav-open-btn { order: 1; }
+
+.header-btn-group > .btn,
+.header-btn-group > form { order: 2; }
+
+@media (max-width: 991px) {
+  .header-top .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .header-top .logo { margin-inline: 0; }
+
+  .header-btn-group {
+    margin-left: auto;
+  }
+}
+
 .nav-open-btn {
   font-size: 30px;
   color: inherit;
+.header-bottom {
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+  padding-block: 15px;
 }
-
-.search-btn { font-size: 20px; }
-
-.header-bottom { border-bottom: 1px solid hsla(0, 0%, 100%, 0.1); }
 
 .header-bottom .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  padding-block: 15px;
+  padding-block: 10px;
+  gap: 20px;
 }
 
 .social-list {
   display: flex;
   align-items: center;
   gap: 5px;
+  margin: 0;
+  padding: 0;
 }
 
+/* MOBILE VIEW ONLY */
+@media only screen and (max-width: 768px) {
+
+  /* 1. The main container inside the header bottom */
+  .header-bottom .container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important; /* Aligns content to the left */
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  /* 2. The social icons list */
+  .header-bottom .social-list {
+    position: relative !important;
+    transform: none !important;
+    flex-direction: row !important;
+    margin-left: 0 !important;
+    margin-right: auto !important; /* Forces alignment to the left */
+    padding-left: 0 !important;
+    gap: 15px !important;
+    display: flex !important;
+  }
+
+  /* 3. Ensure the navbar doesn't interfere */
+  .header-bottom .navbar {
+    top: 0 !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-bottom .container {
+    width: 100%;
+    margin-inline: auto;
+    justify-content: space-between;
+    padding-block: 1.5rem;
+  }
+
+  .header .navbar {
+    all: unset;
+    position: static !important;
+    width: auto !important;
+    max-width: none !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+  }
+}
 .social-link {
   color: var(--white);
   padding: 8px;

@@ -140,18 +140,6 @@
 
           <a href="/temple" class="place-card">
             <div class="place-card-img">
-              <img src="{{ asset('images/TaProhm.webp') }}" alt="Ta Prohm Temple" loading="lazy">
-              <div class="place-card-rating">4.9</div>
-            </div>
-            <div class="place-card-body">
-              <p class="place-card-tag">Temple</p>
-              <h3 class="place-card-title">Ta Prohm Temple</h3>
-              <p class="place-card-desc">Strangler figs and silk-cotton trees weave through the ruins nature and stone share these halls equally.</p>
-            </div>
-          </a>
-
-          <a href="/temple" class="place-card">
-            <div class="place-card-img">
               <img src="{{ asset('images/Bayon.webp') }}" alt="Bayon Temple" loading="lazy">
               <div class="place-card-rating">4.9</div>
             </div>
@@ -171,18 +159,6 @@
               <p class="place-card-tag">Temple</p>
               <h3 class="place-card-title">Angkor Wat</h3>
               <p class="place-card-desc">The world's largest religious monument a spiritual and architectural masterpiece that simply must be seen.</p>
-            </div>
-          </a>
-
-          <a href="/hot_spot" class="place-card">
-            <div class="place-card-img">
-              <img src="{{ asset('images/Pub-street-in-Siem-Reap.webp') }}" alt="Pub Street" loading="lazy">
-              <div class="place-card-rating">4.7</div>
-            </div>
-            <div class="place-card-body">
-              <p class="place-card-tag">Nightlife</p>
-              <h3 class="place-card-title">Pub Street</h3>
-              <p class="place-card-desc">The beating heart of Siem Reap's nightlife cocktails, live music, happy-hour fish-tanks, and buzzing energy.</p>
             </div>
           </a>
 
@@ -218,12 +194,6 @@
           </div>
           <div class="g-item">
             <img src="{{ asset('images/Bayon.webp') }}" alt="Bayon Temple">
-          </div>
-          <div class="g-item">
-            <img src="{{ asset('images/TaProhm.webp') }}" alt="Ta Prohm">
-          </div>
-          <div class="g-item">
-            <img src="{{ asset('images/Pub-street-in-Siem-Reap.webp') }}" alt="Pub Street">
           </div>
           <div class="g-item wide">
             <img src="{{ asset('images/angkor_night.jpg') }}" alt="Angkor at Night" style="min-height:220px;">

@@ -48,48 +48,19 @@
       <div class="container">
 
         <a href="#" class="logo">
-          <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" role="img" aria-label="ExploreSR">
-  <defs>
-    <style>
-      .brand-text {
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-size: 44px;
-        font-weight: 500;
-        fill: #cecbcb;
-      }
-      .compass-outline {
-        fill: none;
-        stroke: #cecbcb;
-        stroke-width: 6;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-      .center-ring {
-        fill: #000000;
-        stroke: #cecbcb;
-        stroke-width: 6;
-      }
-    </style>
-  </defs>
-
-  <g transform="translate(10, 0)">
-
-    <circle cx="60" cy="60" r="45" class="compass-outline" />
-    
-    <path d="M 37 83 L 53 53 L 83 37 L 67 67 Z" class="compass-outline" />
-    
-    <circle cx="60" cy="60" r="9" class="center-ring" />
-  </g>
-
-  <text x="135" y="74" class="brand-text">ExploreSR</text>
-</svg>
+          <img class="brand-logo" src="{{ asset('images/angkor1.png') }}" alt="ExploreSR">
         </a>
 
         <div class="header-btn-group">
 
-          <button class="search-btn" aria-label="Search">
-            <ion-icon name="search"></ion-icon>
-          </button>
+        @auth
+            <form action="/logout" method="POST">
+                @csrf
+                <button class="btn btn-outline-danger">Logout</button>
+            </form>
+        @else
+            <a href="/login" class="btn btn-primary">Login</a>
+        @endauth
 
           <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
             <ion-icon name="menu-outline"></ion-icon>
@@ -174,15 +145,6 @@
 
         </nav>
 
-        @auth
-            <form action="/logout" method="POST">
-                @csrf
-                <button class="btn btn-outline-danger">Logout</button>
-            </form>
-        @else
-            <a href="/login" class="btn btn-primary">Login</a>
-        @endauth
-
       </div>
     </div>
 
@@ -225,55 +187,8 @@
 
 
           <a href="#" class="logo">
-            <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" role="img" aria-label="ExploreSR">
-  <defs>
-    <style>
-      .brand-text {
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-size: 44px;
-        font-weight: 500;
-        fill: #cecbcb;
-      }
-      .compass-outline {
-        fill: none;
-        stroke: #cecbcb;
-        stroke-width: 6;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-      .center-ring {
-        fill: #000000;
-        stroke: #cecbcb;
-        stroke-width: 6;
-      }
-    </style>
-  </defs>
-
-  <!-- Compass Logo Mark -->
-  <g transform="translate(10, 0)">
-    <!-- Outer Ring -->
-    <circle cx="60" cy="60" r="45" class="compass-outline" />
-    
-    <!-- Hollow Compass Needle pointed Northeast -->
-    <path d="M 37 83 L 53 53 L 83 37 L 67 67 Z" class="compass-outline" />
-    
-    <!-- Central Ring overlay -->
-    <circle cx="60" cy="60" r="9" class="center-ring" />
-  </g>
-
-  <!-- Typography -->
-  <text x="135" y="74" class="brand-text">ExploreSR</text>
-</svg>
+            <img class="brand-logo" src="{{ asset('images/angkor1.png') }}" alt="ExploreSR">
           </a>
-      
-
-
-
-
-
-
-
-
 
           <p class="footer-text">
            Let's go siem reap together and explore the beauty of this city. We are here to make your trip unforgettable and full of wonderful memories.
@@ -321,24 +236,8 @@
       <div class="container">
 
         <p class="copyright">
-          &copy; 2022 <a href="">Explore Siem Reap</a>. All rights reserved
+          &copy; 2026 <a href="">Explore Siem Reap</a>. All rights reserved
         </p>
-
-        <ul class="footer-bottom-list">
-
-          <li>
-            <a href="#" class="footer-bottom-link">Privacy Policy</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-bottom-link">Term & Condition</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-bottom-link">FAQ</a>
-          </li>
-
-        </ul>
 
       </div>
     </div>
