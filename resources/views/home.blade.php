@@ -185,6 +185,7 @@
           <h2 class="section-heading">Through the Travellers' Lens</h2>
           <p style="color: rgba(255,255,255,0.6); max-width: 500px; margin: 0.75rem auto 0; font-size: 0.95rem; line-height: 1.75;">
             Real moments, real light, real Siem Reap captured by those who fell in love with this place and came home changed.
+       
           </p>
         </div>
 
@@ -194,7 +195,7 @@
           </div>
           <div class="g-item">
             <img src="{{ asset('images/Bayon.webp') }}" alt="Bayon Temple">
-          </div>
+          </div>    
           <div class="g-item wide">
             <img src="{{ asset('images/angkor_night.jpg') }}" alt="Angkor at Night" style="min-height:220px;">
           </div>

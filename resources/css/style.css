@@ -250,8 +250,8 @@ body { background: var(--white); }
 }
 
 .header-btn-group {
-  justify-self: flex-end;
   grid-column: 3;
+  justify-self: end;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -267,10 +267,17 @@ body { background: var(--white); }
   .header-top .container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
   }
 
-  .header-top .logo { margin-inline: 0; }
+  .header-top .logo {
+    margin-inline: 0;
+  }
+
+  .header-top .brand-logo {
+    width: 180px;
+  }
 
   .header-btn-group {
     margin-left: auto;
@@ -289,15 +296,21 @@ body { background: var(--white); }
 
 .header-bottom .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding-block: 15px;
 }
 
 .social-list {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 0;
+  transform: none;
+  position: relative;
 }
 
 @media only screen and (max-width: 768px) {
@@ -307,17 +320,18 @@ body { background: var(--white); }
     justify-content: flex-start !important;
     align-items: center !important;
     width: 100% !important;
+    padding-block: 15px 30px !important;
   }
 
   .header-bottom .social-list {
-    position: relative !important;
-    transform: none !important;
+    display: flex !important;
     flex-direction: row !important;
     margin-left: 0 !important;
     margin-right: auto !important;
     padding-left: 0 !important;
     gap: 15px !important;
-    display: flex !important;
+    transform: translateY(15px) !important;
+    position: relative !important;
   }
 
   .header-bottom .navbar {
